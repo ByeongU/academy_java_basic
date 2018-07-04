@@ -12,6 +12,8 @@ public class BooleanTest {
 	public static void main(String[] args) {
 		// 1. 선언 : 타입 변수이름;
 		boolean flag;
+		// boolean flag; >> ctrl + art + 아래키  : 복사
+		// 모든 선언은 한번씩만 가능
 		
 		// 2. 초기화 : true 값 할당(저장)
 		flag = true;

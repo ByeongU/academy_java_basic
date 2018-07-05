@@ -1,9 +1,9 @@
-package control;
+package control.switchstmt;
 
 import java.util.Scanner;
 
 /**
- * 다중 선택 if 구문을 사용하여 다음 기준으로
+ * switch 구문을 사용하여 다음 기준으로
  * 
  * 90점 이상 A
  * 80 ~ 89 B
@@ -20,31 +20,37 @@ import java.util.Scanner;
  * @author PC38223
  *
  */
-public class Grade {
+public class ReportGrade {
 
 	public static void main(String[] args) {
 		int score;
 		char grade;
-		
 		Scanner scan;
+		
 		scan = new Scanner(System.in);
-		System.out.print("0 ~ 100 사이의 점수를 입력 : ");
+		System.out.println("0 ~ 100 사이의 점수를 입력 : ");
 		score = scan.nextInt();
 		
-		if (score >= 90) {
+		switch (score / 10 ) {
+		case 10 : case 9 : 
 			grade = 'A';
-		} else if (score >= 80 && score < 90) {
-			grade = 'B';			
-		} else if (score >= 60 && score < 80) {
+			break;
+		case 8 : 
+			grade = 'B';
+			break;
+		case 7 : case 6 :
 			grade = 'C';
-		} else if (score >= 40 && score < 60) {
+			break;
+		case 5 : case 4 :
 			grade = 'D';
-		} else {
+			break;
+			
+		default : 
 			grade = 'F';
 		}
 		
-		System.out.printf("%d 점에 해당하는 학점은 %c", score, grade);
-		
+		System.out.printf("%d 점에 해당하는 학점은 %c 입니다.", score, grade);
+
 	}
 
 }

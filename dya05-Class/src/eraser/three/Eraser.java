@@ -1,4 +1,4 @@
-package eraser.two;
+package eraser.three;
 
 /**
  * 칠판 지우개를 정의하는 클래스
@@ -22,6 +22,8 @@ package eraser.two;
  */
 public class Eraser {
 	// 1. 멤버변수 선언부
+	/** 지우개의 번호 */
+	int		serial;
 	/** 지우개의 가로 */
 	double	width;
 	/** 지우개의 세로 */
@@ -31,10 +33,15 @@ public class Eraser {
 	/** 지우개의 겹 */
 	int 	layer;
 	
+	/** 지우개의 일련 번호를 얻기 위한 클래스 변수 */
+	static int count = 0;
+	
 	// 2. 생성자 선언부
-	// 기본생성자
-	Eraser() {
-		
+	/**
+	 * 기본생성자
+	 */
+	public Eraser() {
+		this.serial = ++count;
 	}
 	
 	/**
@@ -42,6 +49,7 @@ public class Eraser {
 	 * @param width
 	 */
 	Eraser(double width) {
+		this();
 		this.width = width;
 	}
 	
@@ -67,7 +75,7 @@ public class Eraser {
 	}
 	
 	/**
-	 * 모든 필드를 초기화하는 생성자
+	 * 네 개의 필드를 초기화하는 생성자
 	 * @param width
 	 * @param height
 	 * @param depth
@@ -79,13 +87,15 @@ public class Eraser {
 		// this() 선언 : 생성자 첫번째 중에 단 1회만 사용가능
 		this.layer = layer;
 	}
+
+	
 	// 3. 메소드 선언부
 	/**
 	 * 칠판 지우개의 상태를 출력
 	 */
 	public void print() {
-		System.out.printf("가로 : %4.2f, 세로 : %4.2f, 높이 : %4.2f, 겹 : %d%n"
-						, width, height, depth, layer);
+		System.out.printf("일련번호 : %d, 가로 : %4.2f, 세로 : %4.2f, 높이 : %4.2f, 겹 : %d%n"
+						, serial, width, height, depth, layer);
 	}
 	
 	/**

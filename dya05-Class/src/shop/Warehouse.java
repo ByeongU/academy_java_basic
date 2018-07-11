@@ -122,7 +122,7 @@ public class Warehouse {
 				}
 				
 				// 삭제할 제품 뒤쪽부터 끝까지 복사
-				for (int idx = rmIndex; idx < products.length; idx++) {
+				for (int idx = rmIndex; idx < products.length - 1; idx++) {
 					newProducts[idx] = products[idx + 1];
 				}
 				
@@ -132,7 +132,9 @@ public class Warehouse {
 					newProducts[idx] = products[idx];
 				}
 			}
-		}
+			this.products = newProducts;
+			
+		} // outer if end
 	} // method remove end
 	
 	/**

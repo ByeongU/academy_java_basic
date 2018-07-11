@@ -89,7 +89,7 @@ public class Product {
 	// 메소드 선언부
 	/** 제품의 상태 출력 */
 	public void print() {
-		System.out.printf("제품 번호 : %s [제품 명 : %s, 가격 : %d, 재고 수량 : %d]%n"
+		System.out.printf("제품 번호 : %s [제품 명 : %s, 가격 : %,6d, 재고 수량 : %2d]%n"
 						, prodCode, prodName, price, quantity);
 	}
 	

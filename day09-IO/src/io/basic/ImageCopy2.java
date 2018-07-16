@@ -1,0 +1,98 @@
+package io.basic;
+
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+/**
+ * 이미지 파일로 입력을 받아서
+ * 이미지 파일로 출력하는 클래스 (stream 으로만 작업하는 클래스)
+ * -----------------------------------------
+ * -- 입력 --
+ * 1. node stream (FileInputStream)
+ * 2. read 작업 : node stream 메소드로 작업 : read()
+ * 
+ * -- 출력 --
+ * 3. node stream (FileOutputStream)
+ * 4. write 작업 : node stream 메소드로 작업 : write();
+ * 
+ * -- 정리 --
+ * 5. 입력 node stream 닫기
+ * 6. 출력 node stream 닫기
+ * -----------------------------------------
+ * 
+ * @author PC38209
+ *
+ */
+public class ImageCopy2 {
+
+	public static void main(String[] args) {
+		
+		// 1. input node stream (FileInputStream)
+		FileInputStream in = null;
+		try {
+			in = new FileInputStream("maxresdefault.jpg");
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			
+		}
+		
+		// ========== 입력 node stream 선언, 초기화 끝
+		
+		// 3. output node stream (FileOutputStream)
+		FileOutputStream out = null;
+		try {
+			out = new FileOutputStream("maxresdefault-copied.jpg");
+			
+		} catch (FileNotFoundException e) {
+			e.printStackTrace();
+			
+		}
+		
+		// ========== 출력 node stream 선언, 초기화 끝
+		
+		// 2. read 작업 : read() 메소드 사용
+		// 노드 스트림의 read() 를 사용할때
+		// byte[] 을 매게변수로 받는 메소드를 사용
+		
+		// (1) 바이트 배열 : buffer 선언
+		byte[] buffer = new byte[4096];
+		
+		// (2) 노드 스트림의 read() 메소드는 읽어들인 바이트 수
+		//     를 정수로 리턴, 읽은 데이터가 없으면 -1 리턴
+		int readSize = 0;
+		int repeat = 0;
+		
+		// (3) read()
+		try {
+			while ((readSize = in.read(buffer)) != -1) {
+				// 4. write() 작업 : node stream 메소드로 쓰기
+				out.write(buffer);
+				
+				// 5. 화면에 작업 내용 출력
+				System.out.printf("읽은 바이트 : %d \t" + ", 반복 횟수 : %d%n", readSize, ++repeat);
+			}
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} finally {
+			try {
+				if(in != null)
+					in.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			try {
+				if(out != null)
+					out.close();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
+			
+		}
+	System.out.println("이미지 파일 복사가 완료되었습니다.");
+	// 5. 6. 입출력 node stream 닫기
+	}
+}

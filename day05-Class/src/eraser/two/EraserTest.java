@@ -2,13 +2,12 @@ package eraser.two;
 
 /**
  * 칠판 지우개를 테스트하는 클래스
- * @author PC38206
+ * @author PC38209
  *
  */
 public class EraserTest {
 
 	public static void main(String[] args) {
-
 		// 1. 선언 : 칠판 지우개 객체 참조 변수 선언
 		Eraser eraser1;
 		Eraser eraser2;
@@ -22,45 +21,42 @@ public class EraserTest {
 		eraser1.print();
 		eraser2.print();
 		
-		// (2) eraser2 의 한 겹을 제거
+		// (2) eraser2 의 한겹을 제거
 		eraser2.peel();
 		
 		// (3) 두 지우개 상태 출력
 		eraser1.print();
 		eraser2.print();
 		
-		// (4) eraser2 의 한 겹을 제거
+		// (4) eraser2 의 한겹을 제거
 		eraser2.peel();
 		
 		// (5) 두 지우개 상태 출력
 		eraser1.print();
 		eraser2.print();
 		
-		// (6) 남은 겹의 수가 -(음수)로 가지 않는지 확인 
+		// (6) 남은 겹의 수가 -(음수)로 가지않는지 확인
+		eraser2.peel();
+		eraser2.print();
+		
+		eraser2.peel();
+		eraser2.print();
+		
+		eraser2.peel();
+		eraser2.print();
+		
+		eraser2.peel();
+		eraser2.print();
+		
+		eraser2.peel();
+		eraser2.print();
+		
 		eraser2.peel();
 		eraser2.print();
 
-		eraser2.peel();
-		eraser2.print();
 		
-		eraser2.peel();
-		eraser2.print();
-		
-		eraser2.peel();
-		eraser2.print();
-		
-		eraser2.peel();
-		eraser2.print();
-		
-		eraser2.peel();
-		eraser2.print();
-
 		// (7) 두번째 지우개 상태만 출력
 		eraser2.print();
 	}
 
 }
-
-
-
-

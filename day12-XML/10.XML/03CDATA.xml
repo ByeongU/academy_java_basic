@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!-- XML 에서 파싱되지 않는 문자열을 작성하는 
+	 CDATA 기법 -->
+
+<function>
+	<![CDATA[
+		function myFn() {
+			if (a < b && a <= 0)
+				return true;
+			else
+				return false;
+		}
+	]]>
+	<!-- 엘티티를 사용하는 기법은 직관력이 떨어짐 -->
+	<code>
+		function myFn() {
+				if (a &lt; b &amp;&amp; a &lt; 0)
+					return true;
+				else
+					return false;
+		}
+	</code>
+</function>
